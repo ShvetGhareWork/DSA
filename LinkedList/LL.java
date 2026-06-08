@@ -60,6 +60,8 @@ public class LL {
         length++;
     }
 
+    
+
     public void Display(){
         // // 1
         // System.out.print(temp.value + " ");
