@@ -4,9 +4,9 @@ import java.util.List;
 public class SubsetQuestions {
 
     public static void main(String[] args) {
-
-        // ArrayList<String> result = SubsequenceArray("", "shvet");
-        // System.out.println(result);
+// 
+        ArrayList<String> result = SubsequenceArray("", "shvet");
+        System.out.println(result);
         
         // SubsequenceAscii("", "shvet");
         
@@ -15,9 +15,9 @@ public class SubsetQuestions {
 
         // Subsequence("", "shvet");
 
-        int[] nums = {2,1,2};
-        List<List<Integer>> result = Subset(nums);
-        System.out.println(result);
+        // int[] nums = {2,1,2};
+        // List<List<Integer>> result = Subset(nums);
+        // System.out.println(result);
     }
 
     static void Subsequence(String p, String up){

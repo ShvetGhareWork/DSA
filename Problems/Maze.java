@@ -8,11 +8,13 @@ public class Maze {
         // System.out.println(result);
         // System.out.println(resultArraylist);
         boolean[][] maze = {
-            {true, true, false},
-            {false, true, true},
-            {true, false, true}
+            {true, true, true},
+            {true, true, true},
+            {true, true, true}
         };
-        MazeWithObstaclesDiagonal("", 0, 0, maze);
+        // MazeWithObstaclesDiagonal("", 0, 0, maze);
+        // boolean[][] visited = new boolean[maze.length][maze[0].length];
+        MazeAllowAllDirections("", 0, 0, maze);
     }
 
     static int MazePath(int row, int col){
@@ -80,7 +82,7 @@ public class Maze {
             return;
         }
 
-       if(maze[row][col] == false) // Obstacle
+       if(maze[row][col] == true) // Obstacle
             return;
 
         if(row < maze.length - 1)
@@ -95,7 +97,7 @@ public class Maze {
             return;
         }
 
-       if(maze[row][col] == false) // Obstacle
+       if(maze[row][col] == true) // Obstacle
             return;
 
         if(row < maze.length - 1)
@@ -106,5 +108,38 @@ public class Maze {
 
         if(row < maze.length - 1 && col < maze[0].length - 1 && row == col)
             MazeWithObstaclesDiagonal(p + 'S', row + 1, col + 1, maze);
+    }
+
+    static void MazeAllowAllDirections(String p, int row, int col, boolean[][] maze){
+         if(row == maze.length - 1 && col == maze[0].length - 1){
+            System.out.println(p);
+            return;
+        }
+
+
+
+       if(!maze[row][col]) // Obstacle
+            return;
+
+        maze[row][col] = false; // Mark as visited
+
+        if(row < maze.length - 1)
+            MazeAllowAllDirections(p + 'D', row + 1, col, maze);
+        
+        if(col < maze[0].length - 1)
+            MazeAllowAllDirections(p + 'R', row, col + 1, maze);
+
+        if (row > 0) // Up
+        MazeAllowAllDirections(p + 'U', row - 1, col, maze);
+        
+
+        if (col > 0)  // Left
+            MazeAllowAllDirections(p + 'L', row, col - 1, maze);
+
+        // if(row < maze.length - 1 && col < maze[0].length - 1 && row == col)
+        //     MazeWithObstaclesDiagonal(p + 'S', row + 1, col + 1, maze);
+
+        // Backtracking
+        maze[row][col] = true; // Unmark as visited
     }
 }
