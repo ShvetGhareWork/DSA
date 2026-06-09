@@ -60,7 +60,27 @@ public class LL {
         length++;
     }
 
-    
+    // Insert using recurision
+    public void InsertAtIndexWithRecurision(int value, int index){
+        if(index < 0 || index > length){
+            throw new IndexOutOfBoundsException("Index: " + index + ", Length: " + length);
+        }
+        
+        if(index == 0){
+            InsertAtFirst(value);
+            return;
+        }
+        if(index == length){
+            InsertAtLast(value);
+            return;
+        }
+        Node temp = head;
+        temp = temp.next;
+        InsertAtIndexWithRecurision(value, index - 1);
+        Node newNode = new Node(value);
+        temp.next = newNode;
+        temp = newNode;
+    }
 
     public void Display(){
         // // 1
