@@ -36,9 +36,11 @@ public class Main{
 
         LL ll = new LL();
         ll.InsertAtFirst(3);
-        ll.InsertAtFirst(2);
+        ll.InsertAtFirst(2);    
         ll.InsertAtFirst(1);
-        // ll.InsertAtLast(4);
-        ll.InsertAtIndexWithRecurision(4,3);
+        ll.InsertAtLast(4);
+        ll.InsertAtLast(5);
+        ll.InsertAtIndex(6, 5);
+        ll.Display();
     }
 }
